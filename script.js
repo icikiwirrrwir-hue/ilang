@@ -1,4 +1,4 @@
-let reports = JSON.parse(localStorage.getItem('lost_items')) || [
+let reports = JSON.parse(localStorage.getItem('lost_itemsv2')) || [
     {
         id: 1,
         status: 'Hilang',
