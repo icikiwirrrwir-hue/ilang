@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Pengajuan & Pencarian Barang Hilang</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                <span>CariBarang<span>.ID</span></span>
+            </div>
+            <nav>
+                <a href="#form-section">Laporkan Barang</a>
+                <a href="#list-section">Daftar Barang</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Kehilangan atau Menemukan Barang?</h1>
+            <p>Laporkan barang yang hilang atau temukan pemiliknya dengan mudah melalui platform komunitas ini.</p>
+            <div class="hero-buttons">
+                <a href="#form-section" class="btn btn-white">Buat Laporan</a>
+                <a href="#list-section" class="btn btn-outline">Cari Barang</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Container -->
+    <main>
+        
+        <!-- Form Pengajuan -->
+        <section id="form-section" class="card">
+            <h2 class="form-title">
+                <span>📝</span> Formulir Pengajuan
+            </h2>
+            <form id="reportForm">
+                <div class="form-group">
+                    <label>Status Laporan</label>
+                    <select id="status" class="form-control" required>
+                        <option value="Hilang">Barang Hilang</option>
+                        <option value="Temuan">Barang Temuan</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Nama Pelapor</label>
+                    <input type="text" id="namaPelapor" placeholder="cth: Budi Santoso" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Kontak (No. WhatsApp / Email)</label>
+                    <input type="text" id="kontak" placeholder="cth: 08123456789" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Nama Barang</label>
+                    <input type="text" id="namaBarang" placeholder="cth: Dompet Hitam ST12" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Kategori</label>
+                    <select id="kategori" class="form-control" required>
+                        <option value="Elektronik">Elektronik (HP, Laptop, dll)</option>
+                        <option value="Dokumen">Dokumen (KTP, SIM, STNK)</option>
+                        <option value="Dompet & Tas">Dompet & Tas</option>
+                        <option value="Lainnya">Lainnya</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Upload Foto Barang (Opsional)</label>
+                    <input type="file" id="fotoBarang" accept="image/*" class="file-input form-control">
+                    <!-- Preview Gambar -->
+                    <div id="imagePreviewContainer" class="preview-container hidden">
+                        <img id="imagePreview" src="" alt="Preview Foto">
+                        <button type="button" id="removeImageBtn" class="btn-remove">Hapus</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Lokasi Kejadian</label>
+                    <input type="text" id="lokasi" placeholder="cth: Stasiun Kota, Jakarta" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Tanggal</label>
+                    <input type="date" id="tanggal" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Deskripsi Tambahan</label>
+                    <textarea id="deskripsi" rows="3" placeholder="Ciri-ciri khusus, warna, atau detail tambahan..." class="form-control"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    Kirim Laporan
+                </button>
+            </form>
+        </section>
+
+        <!-- Daftar Laporan -->
+        <section id="list-section">
+            <div class="list-header">
+                <h2 class="section-title" style="margin-bottom: 0;">
+                    <span>📋</span> Daftar Laporan Aktif
+                </h2>
+                <div>
+                    <input type="text" id="searchInput" placeholder="Cari nama barang / lokasi..." class="form-control" style="width: 100%; min-width: 240px;">
+                </div>
+            </div>
+
+            <!-- Grid Kartu Laporan -->
+            <div id="itemsContainer" class="items-grid"></div>
+
+            <!-- Pesan Kosong -->
+            <div id="emptyState" class="empty-state hidden">
+                <p>Belum ada laporan yang tersedia saat ini.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 CariBarang.ID. Dibuat untuk Komunitas &middot; Hosted on GitHub Pages</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
